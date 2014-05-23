@@ -18,6 +18,10 @@ public class ClientStart {
 
     public ClientStart() throws IOException {
         socket = new Socket("localhost", 4321);
+        inStream = socket.getInputStream();
+        outStream = socket.getOutputStream();
+        inFromServer = new Scanner(inStream);
+        inFromCmd = new Scanner(System.in);
     }
 
     public static void main(String[] args) {
